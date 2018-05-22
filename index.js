@@ -14,6 +14,7 @@ const fs = require("fs")
 const moment = require('moment');
 const mongoose = require('mongoose');
 require("./modules/functions.js")(client);
+const tokens = require("./tokens.json");
 
 
 
@@ -153,7 +154,7 @@ client.on("ready", async() => {
 
 
 
-  client.login(process.env.TOKEN);
+  client.login(client.tokens.token);
 };
 
 init();
