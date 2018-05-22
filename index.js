@@ -115,6 +115,7 @@ const init = async () => {
   client.on('ready', update);
   
   
+
 client.on("ready", async() => {
   const g = await Guild.find({}).exec();
   const c = client.guilds.array(); // All guilds bot is in.
