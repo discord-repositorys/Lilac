@@ -19,7 +19,7 @@ exports.conf = {
 
 exports.help = {
     name: "update",
-    category: "System",
-    description: "Updates the bot",
+    category: "Owner",
+    description: "Update the bot",
     usage: "update"
 };
