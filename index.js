@@ -16,7 +16,6 @@ const moment = require('moment');
 const mongoose = require('mongoose');
 require("./modules/functions.js")(client);
 
-console.log("xd")
 
 function clean(text) {
   if (typeof(text) === "string")
