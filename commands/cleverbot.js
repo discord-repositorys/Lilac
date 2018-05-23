@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
     const cleverbot = require("cleverbot.io");
-    const clever = new cleverbot(process.env.CLEVERBOT_USER, process.env.CLEVERBOT_APIKEY);
+    const clever = new cleverbot(client.tokens.CLEVERBOT_USER, client.tokens.CLEVERBOT_APIKEY);
     message.channel.startTyping();
     clever.setNick("cryptide");
     clever.create(function(err, session) {
