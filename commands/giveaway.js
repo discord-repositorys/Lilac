@@ -3,7 +3,7 @@ exports.run = function(client, message, args, level) {
   try {
     let time = args[0];
     if (!message.guild.member(message.author).hasPermission("MANAGE_SERVER")) return message.channel.send("Sorry you are not an Administrator so you can't use this command. Administrators are the people who possess the `Manage_Server` permission.")
-    if (!time) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a time for the mute!");
+    if (!time) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a time for the giveaway!");
     if (ms(time) <= 0) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a realistic time.");
     if (ms(time) > client.settings.weekOverflow) return client.embed(message, client.hex, "Invalid Exception:", "Time overflow detected, please provide a time that's less than a week. \nThis will be improved with database storage in the future for longer times.");
     if (Math.floor(ms(time)) <= 0) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a realistic time.");
