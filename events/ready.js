@@ -1,44 +1,61 @@
-const { MessageEmbed } = require("discord.js");
-const { post } = require("snekfetch");
-const Discord = require("discord.js");
-const client = new Discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START", "TYPING_STOP", "GUILD_SYNC", "RELATIONSHIP_ADD", "RELATIONSHIP_REMOVE", "USER_SETTINGS_UPDATE", "USER_NOTE_UPDATE"], reconnect: true }); //ice
-module.exports = async (client) => {
-
-    client.color = 0x36393F;
-
-client.embed = function clientEmbed(options = {}) {
-    const title = options.title ? options.title : undefined;
-    const thumbnail = options.thumbnail ? options.thumbnail : undefined;
-    const image = options.image ? options.image : undefined;
-    const description = options.description ? options.description : undefined;
-    const footer = options.footer ? options.footer : undefined;
-    const timestamp = options.timestamp ? options.timestamp : false;
-    const footerIcon = options.footerIcon ? options.footerIcon : null;
-    const fields = options.fields ? options.fields : undefined;
-    const color = options.color ? options.color : client.color;
-    const author = options.author ? options.author : undefined;
-    const e = new MessageEmbed();
-
-    if (fields === undefined) {} else { for (const field of fields) e.addField(field.name, field.value, field.inline ? field.inline : false); }
-    if (title === undefined) {} else { e.setTitle(title); }
-    if (description === undefined) {} else { e.setDescription(description); }
-    if (color === undefined) {} else { e.setColor(color); }
-    if (author === undefined) {} else { e.setAuthor(author.name, author.icon, author.url ? author.url : null); }
-    if (timestamp === false) {} else { e.setTimestamp(); }
-    if (footer === undefined) {} else { e.setFooter(footer, footerIcon); }
-    if (thumbnail === undefined) {} else { e.setThumbnail(thumbnail); }
-    if (image === undefined) {} else { e.setImage(image); }
-
-    return e;
+module.exports = function(client, message) {
+    client.hex = 0x36393F; //Example Hex colour to export with your module.
+    client.embed = function(message, colour, title, description) {
+      return new Promise(function(resolve, reject) {
+        if (!title) title = "";
+        if (!description) description = "";
+        message.channel.send("", {embed: {
+          color: colour,
+          title: title,
+          description: description,
+          timestamp: new Date(),
+          footer: {text: "Command successfully executed."}
+        }}).catch(error => reject(error));
+      });
+    };
+  
+    client.embedDM = function(client, message, colour, title, description, userID) {
+      return new Promise(function(resolve, reject) {
+        if (!title) title = "";
+        if (!description) description = "";
+        if (!userID) reject("No ID provided!");
+        client.users.get(userID).send("", {embed: {
+          color: colour,
+          title: title,
+          description: description,
+          timestamp: new Date(),
+          footer: {text: "Command successfully executed."}
+        }}).catch(error => reject(error));
+      });
+    };
+  
+    client.embedID = function(message, colour, title, description, channelID) {
+      return new Promise(function(resolve, reject) {
+        if (!title) title = "";
+        if (!description) description = "";
+        if (!channelID) reject("No ID provided!");
+        message.guild.channels.get(channelID).send("", {embed: {
+          color: colour,
+          title: title,
+          description: description,
+          timestamp: new Date(),
+          footer: {text: "Command successfully executed."}
+        }}).catch(error => reject(error));
+      });
+    };
+  
+    client.embedGID = function(message, colour, title, description, channelID) {
+      return new Promise(function(resolve, reject) {
+        if (!title) title = "";
+        if (!description) description = "";
+        if (!channelID) reject("No ID provided!");
+        client.channels.get(channelID).send("", {embed: {
+          color: colour,
+          title: title,
+          description: description,
+          timestamp: new Date(),
+          footer: {text: "Command successfully executed."}
+        }}).catch(error => reject(error));
+      });
+    };
   };
-}
-
-client.haste = function clientHaste(text) {
-    const promise = new Promise(async (res, rej) => {
-        if (!text) return rej("Text needs to be provided!");
-        post("https://hastebin.com/documents")
-            .send(text)
-            .then(r => res(`https://hastebin.com/${r.body.key}`)).catch(e => rej(e));
-    });
-    return promise;
-};
