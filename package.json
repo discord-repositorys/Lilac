@@ -14,11 +14,9 @@
     "@types/node": "^10.1.0",
     "array-sort": "^1.0.0",
     "bufferutil": "^3.0.4",
-    "canvas-constructor": "CyRIC21/canvasConstructor#master-dev",
-    "canvas-prebuilt": "^1.6.5-prerelease.1",
     "cleverbot.io": "^1.0.4",
     "common-tags": "^1.7.2",
-    "discord.js": "discordjs/discord.js",
+    "discord.js": "github:discordjs/discord.js",
     "fast-html-parser": "^1.0.1",
     "figlet": "^1.2.0",
     "fortnite": "^4.1.1",
@@ -34,6 +32,7 @@
     "moment": "^2.20.1",
     "moment-duration-format": "^2.2.0",
     "mongoose": "^5.0.15",
+    "nodemon": "^1.17.5",
     "parse-ms": "^1.0.1",
     "pastebin-js": "^0.5.1",
     "pm2": "^2.10.3",
@@ -41,13 +40,12 @@
     "querystring": "^0.2.0",
     "relevant-urban": "^2.0.0",
     "request": "^2.85.0",
+    "snekfetch": "^4.0.0",
     "superagent": "^3.8.2",
     "table": "^4.0.3",
     "twemoji": "^2.5.1",
     "unfluff": "^3.0.0",
     "uws": "^9.147.0",
-    "webhooks4discord": "^1.0.0",
-    "ytdl-core": "^0.20.4",
-    "zlib-sync": "^0.1.4"
+    "webhooks4discord": "^1.0.0"
   }
 }
