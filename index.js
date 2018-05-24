@@ -15,7 +15,7 @@ const fs = require("fs")
 const moment = require('moment');
 const mongoose = require('mongoose');
 require("./modules/functions.js")(client);
-
+require("./embed.js")(client);
 
 function clean(text) {
   if (typeof(text) === "string")
