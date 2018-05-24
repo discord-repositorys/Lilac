@@ -60,7 +60,7 @@ client.on('guildDelete', guild => {
 
 
 client.on("ready", () => {
-  client.user.setActivity(`d.help In | ${client.guilds.size} servers`);
+  client.user.setActivity(`l.help In | ${client.guilds.size} servers`);
 })
 
 
