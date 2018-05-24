@@ -15,11 +15,11 @@ module.exports = async(client, message) => {
   // If there is no guild, get default conf (DMs)
   let prefix;
   try {
-    if(!message.guild) prefix = "d.";
+    if(!message.guild) prefix = "l.";
     else { // ugly af if/else lol
       const g = await Guild.findById(message.guild.id);
       if(g && g.prefix) prefix = g.prefix;
-      else prefix = "d.";
+      else prefix = "l.";
     }
   } catch(err) {
     console.error(err);

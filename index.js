@@ -51,11 +51,11 @@ client.db.once("open", () => console.log("Connected to MongoDB"));
 client.db.on("error", (err) => console.error(err));
 
 client.on("guildCreate", guild => {
-  console.log(`Someone added Cryptide to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
+  console.log(`Someone added Lilac to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
 });
 
 client.on('guildDelete', guild => {
-  console.log(`Someone removed Cryptide to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
+  console.log(`Someone removed Lilac from their discord! ${guild.name} Member count: ${guild.memberCount}!`)
 });
 
 
@@ -73,7 +73,7 @@ Bot Id: ${client.user.id}
 Servers: ${client.guilds.size}
 Users: ${client.users.size}
 ########################`.trim());
-  console.log("Cryptide is in: " + client.guilds.size + " servers.");
+  console.log("Lilac is in: " + client.guilds.size + " servers.");
 });
 
 client.config = require("./config.js");
@@ -123,7 +123,7 @@ client.on("ready", async() => {
   const c = client.guilds.array();
   c.forEach(x => {
     if(!(g.find(v => v._id === x.id))) { 
-      const v = new Guild({ _id: x.id, prefix: "d.", });
+      const v = new Guild({ _id: x.id, prefix: "l.", });
       v.save((e) => {
         if(e) client.logger.error(e);
         else client.logger.log(`Found a server without config, added default settings: ${x.name} (${x.id})`);

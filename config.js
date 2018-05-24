@@ -7,7 +7,7 @@ const config = {
 
 
   "defaultSettings" : {
-    "prefix": "d.",
+    "prefix": "l.",
     "systemNotice": "true" // This gives a notice when a user tries to run a command that they do not have permission to use.
   },
 
