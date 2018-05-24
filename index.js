@@ -120,11 +120,10 @@ const init = async () => {
 
 client.on("ready", async() => {
   const g = await Guild.find({}).exec();
-  const c = client.guilds.array(); // All guilds bot is in.
+  const c = client.guilds.array();
   c.forEach(x => {
-    if(!(g.find(v => v._id === x.id))) { // bot joined a server while offline or this is first start.
+    if(!(g.find(v => v._id === x.id))) { 
       const v = new Guild({ _id: x.id, prefix: "d.", });
-      // add default guild configs.
       v.save((e) => {
         if(e) client.logger.error(e);
         else client.logger.log(`Found a server without config, added default settings: ${x.name} (${x.id})`);
