@@ -104,7 +104,7 @@ const klaw = require("klaw");
 const path = require("path");
 
 const cmdList = [];
-klaw("./commands")
+klaw("./commands/")
   .on("data", (file) => {
     const cmdFile = path.parse(file.path);
     if(!cmdFile.ext || cmdFile.ext !== ".js") return; // ignore non js files/folders
