@@ -91,13 +91,30 @@ client.settings = new Discord.Collection()
 const init = async () => {
 
 
-    const cmdFiles = await readdir("./commands/");
-    client.logger.log(`Loading a total of ${cmdFiles.length} commands.`);
-    cmdFiles.forEach(f => {
-      if (!f.endsWith(".js")) return;
-      const response = client.loadCommand(f);
-      if (response) console.log(response);
-    });
+//    const cmdFiles = await readdir("./commands/");
+//    client.logger.log(`Loading a total of ${cmdFiles.length} commands.`);
+//    cmdFiles.forEach(f => {
+//      if (!f.endsWith(".js")) return;
+//      const response = client.loadCommand(f);
+//      if (response) console.log(response);
+//    });
+
+
+const klaw = require("klaw");
+const path = require("path");
+
+const cmdList = [];
+klaw("./commands")
+  .on("data", (file) => {
+    const cmdFile = path.parse(file.path);
+    if(!cmdFile.ext || cmdFile.ext !== ".js") return; // ignore non js files/folders
+    const cmd = require(cmdFile.dir + cmdFile.name);
+   client.commands.set(cmd.help.name, cmd);
+  cmd.aliases.forEach(x => client.aliases.set(x, cmd.name));
+  cmdList.push(cmd);
+})
+  .on("end", () => console.log(`Loaded a total of ${cmdList.length} commands!`)
+  .on("error", (err) => console.error(err)));
   
   const update = () => {
     const data = stringify({ server_count: client.guilds.size });
