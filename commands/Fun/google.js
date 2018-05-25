@@ -87,7 +87,7 @@ exports.conf = {
   
   exports.help = {
     name: "google",
-    category: "Misc",
+    category: "Fun",
     description: "Google something.",
     usage: "google <text>"
   };

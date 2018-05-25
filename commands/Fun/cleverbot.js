@@ -19,7 +19,7 @@ exports.conf = {
   
   exports.help = {
     name: "cleverbot",
-    category: "Misc",
+    category: "Fun",
     description: "cleverbot.",
     usage: "cleverbot"
   };
