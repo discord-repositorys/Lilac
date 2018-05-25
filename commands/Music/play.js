@@ -17,7 +17,7 @@ exports.run = async (client, message, args, level) => {
   const playlist = "&list="
   if (song.includes(playlist.toLowerCase())) return client.embed(message, client.hex, "Invalid song request:", "Playlist support will soon be added.");
 
-  if (!client.playlists.in(message.guild.id)) {
+  if (!client.playlists.has(message.guild.id)) {
     var firstSong = true;
     client.playlists.set(message.guild.id, {
       dispatcher: null,
