@@ -10,7 +10,7 @@ module.exports = async(client, message) => {
   // It's good practice to ignore other bots. This also makes your bot ignore itself
   // and not get into a spam loop (we call that "botception").
   if (message.author.bot) return;
-  
+
   const level = client.permlevel(message);
   if (level < client.levelCache[cmd.conf.permLevel]) {
     if (settings.systemNotice === "true") {
@@ -50,7 +50,6 @@ module.exports = async(client, message) => {
   const command = args.shift().toLowerCase();
 
   // Get the user or member's permission level from the elevation
-  const level = client.permlevel(message);
 
   // Check whether the command, or alias, exist in the collections defined
   // in app.js.
