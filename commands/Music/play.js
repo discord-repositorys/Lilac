@@ -18,12 +18,6 @@ exports.run = async (client, message, args, level) => {
   if (song.includes(playlist.toLowerCase())) return client.embed(message, client.hex, "Invalid song request:", "Playlist support will soon be added.");
 
     var firstSong = true;
-    client.playlists.set(message.guild.id, {
-      dispatcher: null,
-      queue: [],
-      connection: null,
-      position: -1
-    });
     await voiceChannel.join();
 
   let id = (() => {
