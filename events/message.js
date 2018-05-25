@@ -10,7 +10,7 @@ module.exports = async(client, message) => {
   // It's good practice to ignore other bots. This also makes your bot ignore itself
   // and not get into a spam loop (we call that "botception").
   if (message.author.bot) return;
-
+  const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   const level = client.permlevel(message);
   if (level < client.levelCache[cmd.conf.permLevel]) {
     if (settings.systemNotice === "true") {
@@ -53,7 +53,6 @@ module.exports = async(client, message) => {
 
   // Check whether the command, or alias, exist in the collections defined
   // in app.js.
-  const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   // using this const varName = thing OR otherthign; is a pretty efficient
   // and clean way to grab one of 2 values!
   if (!cmd) return;
