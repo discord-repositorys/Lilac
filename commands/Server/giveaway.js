@@ -3,7 +3,7 @@ exports.run = function(client, message, args, level) {
 if(!message.member.permissions.has("MANAGE_SERVER")) return message.reply("You need `Manage Server` Permissions to use this!");
   try {
     let time = args[0];
-    if (!time) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a time for the mute!");
+    if (!time) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a time for the giveaway!");
     if (ms(time) <= 0) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a realistic time.");
     if (ms(time) > client.settings.weekOverflow) return client.embed(message, client.hex, "Invalid Exception:", "Time overflow detected, please provide a time that's less than a week. \nThis will be improved with database storage in the future for longer times.");
     if (Math.floor(ms(time)) <= 0) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a realistic time.");
