@@ -15,7 +15,7 @@ module.exports = async(client, message) => {
   // If there is no guild, get default conf (DMs)
 
   if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
-    message.channel.send("BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Lilac, so nice to meet you. I do a LOT of kewl stuff, like welcome/leave messages, Canvas, and so much more! All it takes is ```l.help``` to see the powers I got!")
+    message.channel.send("Hi im Lilac! My features include welcome/leave messages, changeable prefix, Moderation commands, And much much more!")
   }
 
   let prefix;
