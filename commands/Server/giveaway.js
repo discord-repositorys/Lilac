@@ -7,7 +7,6 @@ if(!message.member.permissions.has("MANAGE_SERVER")) return message.reply("You n
     if (ms(time) <= 0) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a realistic time.");
     if (ms(time) > client.settings.weekOverflow) return client.embed(message, client.hex, "Invalid Exception:", "Time overflow detected, please provide a time that's less than a week. \nThis will be improved with database storage in the future for longer times.");
     if (Math.floor(ms(time)) <= 0) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a realistic time.");
-    if (!client.hasNumber(time)) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a time that has a number.");
     let amountOfWinners = args[1];
     if (isNaN(amountOfWinners)) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a number for amount of winners.");
     if (amountOfWinners < 1) return client.embed(message, client.hex, "Invalid Exception:", "Please specify an amount of winners, that's larger than or equal to 1.");
