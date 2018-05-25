@@ -31,6 +31,10 @@ module.exports = async(client, message) => {
   }
   message.prefix = prefix;
 
+  if(message.content.match(new RegExp(`^<@!?${client.user.id}>$ prefix`))) {
+    message.channel.send("The prefix for this guild is ``${message.prefix}``")
+  }
+
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
   if (message.content.indexOf(prefix) !== 0) return;
