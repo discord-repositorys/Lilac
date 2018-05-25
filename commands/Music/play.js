@@ -5,7 +5,7 @@ const embedCheck = require("../../functions/embedPerms.js");
 const playNext = require("../../functions/playNext.js");
 const ytapi = require("simple-youtube-api");
 const { parse } = require("url");
-const youtube = new ytapi(require("../configuration/settings.js").youtubeAPIKey);
+const youtube = new ytapi(require("../../tokens.js").youtubeAPIKey);
 exports.run = async (client, message, args, level) => {
   const voiceChannel = message.member.voiceChannel ? message.member.voiceChannel : (message.guild.voiceConnection ? message.guild.voiceConnection.channel : null);
   if (!voiceChannel || (!message.member.voiceChannel && message.author.permLevel < 2)) {
