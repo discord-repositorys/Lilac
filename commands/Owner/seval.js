@@ -50,7 +50,8 @@ exports.conf = {
 exports.help = {
   name: "seval",
   description: "Evaluates arbitrary Javascript.",
-  usage: "seval [expression]",
+  category: "Owner",
+  usage: "seval [expression]"
 };
 
 function clean(text) {
