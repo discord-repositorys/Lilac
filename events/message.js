@@ -34,22 +34,21 @@ module.exports = async(client, message) => {
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
   // command = say
   // args = ["Is", "this", "the", "real", "life?"]
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 
   // Get the user or member's permission level from the elevation
+  const level = client.permlevel(message);
 
   // Check whether the command, or alias, exist in the collections defined
   // in app.js.
+  const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   // using this const varName = thing OR otherthign; is a pretty efficient
   // and clean way to grab one of 2 values!
   if (!cmd) return;
 
   // Some commands may not be useable in DMs. This check prevents those commands from running
   // and return a friendly error message.
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-  const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
-  const level = client.permlevel(message);
   if (cmd && !message.guild && cmd.conf.guildOnly)
     return message.channel.send("This command is unavailable via private message. Please run this command in a guild.");
 
