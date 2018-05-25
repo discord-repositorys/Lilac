@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const embedCheck = require("../../musicfiles/embedPerms.js");
 exports.run = (client, message, args, level) => {
   if (!client.playlists.has(message.guild.id)) return client.embed(message, client.hex, "Invalid queue request:", "Queue is empty.");
@@ -8,7 +9,7 @@ exports.run = (client, message, args, level) => {
 
   const current = playlist.shift();
   const singular = playlist.length === 1;
-  const embed = new Discord.RichEmbed();
+  const embed = new Discord.MessageEmbed();
 
   embed.setTitle(`Currently playing **${current.songTitle.substring(0, 50)}** (${current.playTime})`)
     .setColor(client.hex)
