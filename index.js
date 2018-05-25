@@ -113,8 +113,8 @@ klaw("./commands/")
   cmd.conf.aliases.forEach(x => client.aliases.set(x, cmd.name));
   cmdList.push(cmd);
 })
-  .on("end", () => console.log(`Loaded a total of ${cmdList.length} commands!`)
-  .on("error", (err) => console.error(err)));
+  .on("end", () => console.log(`Loaded a total of ${cmdList.length} commands!`))
+  .on("error", (err) => console.error(err));
   
   const update = () => {
     const data = stringify({ server_count: client.guilds.size });
