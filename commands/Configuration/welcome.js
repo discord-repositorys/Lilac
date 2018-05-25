@@ -1,4 +1,4 @@
-const Guild = require("../models/guild.js");
+const Guild = require("../../models/guild.js");
 
 exports.run = async(client, message, [action, ...args], level) => {
   if(!message.member.permissions.has("MANAGE_SERVER")) return message.reply("You need `Manage Server` Permissions to use this!");
