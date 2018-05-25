@@ -13,6 +13,11 @@ module.exports = async(client, message) => {
 
   // Grab the settings for this server from MongoDB.
   // If there is no guild, get default conf (DMs)
+
+  if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
+    message.channel.send("BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Lilac, so nice to meet you. I do a LOT of kewl stuff, like welcome/leave messages, Canvas, and so much more! All it takes is l.help to see the powers I got!")
+  }
+
   let prefix;
   try {
     if(!message.guild) prefix = "l.";
