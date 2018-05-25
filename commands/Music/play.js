@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const embed = new Discord.MessageEmbed();
-const embedCheck = require("../../functions/embedPerms.js");
-const playNext = require("../../functions/playNext.js");
+const embedCheck = require("../../../functions/embedPerms.js");
+const playNext = require("../../../functions/playNext.js");
 const ytapi = require("simple-youtube-api");
 const { parse } = require("url");
 const youtube = new ytapi(require("../../tokens.js").youtubeAPIKey);
