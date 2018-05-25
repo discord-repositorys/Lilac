@@ -54,7 +54,7 @@ exports.run = async (client, message, args, level) => {
     }
     message.channel.send(response);
   } else {
-    message.channel.send(`You need to use \`${prefix}rps\` <rock|paper|scissors>`);
+    message.channel.send(`You need to use \`${message.prefix}rps\` <rock|paper|scissors>`);
   }
 }
 
