@@ -11,6 +11,17 @@ module.exports = async(client, message) => {
   // and not get into a spam loop (we call that "botception").
   if (message.author.bot) return;
 
+  if (level < client.levelCache[cmd.conf.permLevel]) {
+    if (settings.systemNotice === "true") {
+      return message.channel.send(`You do not have permission to use this command.
+  Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
+  This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
+    } else {
+      return;
+    }
+  }
+
+
   // Grab the settings for this server from MongoDB.
   // If there is no guild, get default conf (DMs)
   let prefix;
