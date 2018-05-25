@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const embedCheck = require("../functions/embedPerms.js");
+const embedCheck = require("../../musicfiles/embedPerms.js");
 exports.run = (client, message, args, level) => {
   if (!client.playlists.has(message.guild.id)) return client.embed(message, client.hex, "Invalid queue request:", "Queue is empty.");
 
