@@ -15,6 +15,7 @@ if(!message.member.permissions.has("MANAGE_SERVER")) return message.reply("You n
     if (!prize) return client.embed(message, client.hex, "Invalid Exception:", "Please specify a prize that the user will win from the giveaway.");
     returnReactionUsers(client, message, amountOfWinners, time, prize);
   }catch (error){
+    console.log(error)
   }
 };
 
