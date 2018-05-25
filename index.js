@@ -108,7 +108,7 @@ klaw("./commands/")
   .on("data", (file) => {
     const cmdFile = path.parse(file.path);
     if(!cmdFile.ext || cmdFile.ext !== ".js") return; // ignore non js files/folders
-    const cmd = require(cmdFile.dir + cmdFile.name);
+    const cmd = require(cmdFile.dir + path.sep + cmdFile.name + cmdFile.ext);
    client.commands.set(cmd.help.name, cmd);
   cmd.aliases.forEach(x => client.aliases.set(x, cmd.name));
   cmdList.push(cmd);
