@@ -1,7 +1,7 @@
 const config = {
   "ownerID": "293159670040887297",
 
-  "admins": [],
+  "admins": ["292690616285134850"],
 
   "support": [],
 
