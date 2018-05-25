@@ -18,6 +18,7 @@
     "common-tags": "^1.7.2",
     "discord.js": "github:discordjs/discord.js",
     "fast-html-parser": "^1.0.1",
+    "ffmpeg-binaries": "^3.2.2-3",
     "figlet": "^1.2.0",
     "fortnite": "^4.1.1",
     "fortnite-api": "^2.11.0",
@@ -27,11 +28,13 @@
     "https": "^1.0.0",
     "humanize-duration": "^3.14.0",
     "idiotic-api": "^0.2.4",
+    "klaw": "^2.1.1",
     "memejs": "^1.0.7",
     "minimist": "^1.2.0",
     "moment": "^2.20.1",
     "moment-duration-format": "^2.2.0",
     "mongoose": "^5.0.15",
+    "node-opus": "^0.3.0",
     "nodemon": "^1.17.5",
     "parse-ms": "^1.0.1",
     "pastebin-js": "^0.5.1",
@@ -40,12 +43,15 @@
     "querystring": "^0.2.0",
     "relevant-urban": "^2.0.0",
     "request": "^2.85.0",
+    "simple-youtube-api": "^5.0.2",
     "snekfetch": "^4.0.0",
     "superagent": "^3.8.2",
     "table": "^4.0.3",
     "twemoji": "^2.5.1",
     "unfluff": "^3.0.0",
+    "url": "^0.11.0",
     "uws": "^9.147.0",
-    "webhooks4discord": "^1.0.0"
+    "webhooks4discord": "^1.0.0",
+    "ytdl-core": "^0.20.4"
   }
 }
