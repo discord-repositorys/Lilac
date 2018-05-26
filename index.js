@@ -99,6 +99,10 @@ const init = async () => {
 //      if (response) console.log(response);
 //    });
 
+if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
+  message.channel.send(`Hi im Lilac! My features include welcome/leave messages, changeable prefix, Moderation commands, And much much more!`)
+}
+
 
 const klaw = require("klaw");
 const path = require("path");

@@ -13,10 +13,6 @@ module.exports = async(client, message) => {
 
   // Grab the settings for this server from MongoDB.
   // If there is no guild, get default conf (DMs)
-  const loading = client.emojis.find("name", "loading");
-  if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
-    message.channel.send(`Hi im Lilac! My features include welcome/leave messages, changeable prefix, Moderation commands, And much much more!`)
-  }
 
   let prefix;
   try {
