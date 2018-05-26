@@ -12,7 +12,7 @@ exports.run = (client, message, args, level) => {
         .setDescription(`${args[0]} -> Avaliable!`)
         .setColor(0xFF0000)
         .setThumbnail(client.user.avatarURL)
-      message.channel.sendEmbed(embed);
+      message.channel.send(embed);
     }else if(body.includes("true")) {
       const embed = new Discord.MessageEmbed()
         .setTitle('ROBLOX Notification')
@@ -20,7 +20,7 @@ exports.run = (client, message, args, level) => {
         .setDescription(`${args[0]} -> Unavaliable!`)
         .setColor(0xFF0000)
         .setThumbnail(client.user.avatarURL)
-      message.channel.sendEmbed(embed);
+      message.channel.send(embed);
     }
   });
 };
