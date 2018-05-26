@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const request = require('request')
 const { MessageEmbed } = require("discord.js");
 
-exports.execute = (client, msg, args) => {
+exports.run = (client, message, args, level) => {
   let link = `https://www.roblox.com/UserCheck/DoesUsernameExist?username=${args[0]}`;
   request(link, function (error, response, body) {
     if(body.includes("false")) {
@@ -12,7 +12,7 @@ exports.execute = (client, msg, args) => {
         .setDescription(`${args[0]} -> Avaliable!`)
         .setColor(0xFF0000)
         .setThumbnail(client.user.avatarURL)
-      msg.channel.sendEmbed(embed);
+      message.channel.sendEmbed(embed);
     }else if(body.includes("true")) {
       const embed = new Discord.MessageEmbed()
         .setTitle('ROBLOX Notification')
@@ -20,7 +20,7 @@ exports.execute = (client, msg, args) => {
         .setDescription(`${args[0]} -> Unavaliable!`)
         .setColor(0xFF0000)
         .setThumbnail(client.user.avatarURL)
-      msg.channel.sendEmbed(embed);
+      message.channel.sendEmbed(embed);
     }
   });
 };
