@@ -1,2 +1,2 @@
-# cryptide
-cryptide
+# Lilac
+Lilac the discord bot
