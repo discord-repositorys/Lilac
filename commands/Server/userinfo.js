@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 const { MessageEmbed } = require("discord.js");
 //All Fields are Optional Pick Any some
 const UserInfo = new Discord.MessageEmbed()
+exports.run = function(client, message, args, level) {
+const UserInfo = new Discord.MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL()) //Heading With Username & Their Avatar 
 .setTitle('UserInfo')
 .setColor('RANDOM') //You Can Use HexColour Ex:- #000000
@@ -34,6 +36,7 @@ const UserInfo = new Discord.MessageEmbed()
 .setTimestamp() //The timestamp of this embed
 
 message.channel.send(UserInfo);
+}
 
 
 exports.conf = {
