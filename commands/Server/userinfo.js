@@ -9,13 +9,6 @@ const UserInfo = new Discord.MessageEmbed()
 .setColor('RANDOM') //You Can Use HexColour Ex:- #000000
 
 
-.addField('Avatar', message.author.avatar, true) //The ID of the user's avatar //Inline True or false
-.addField('AvatarURL', message.author.avatarURL({
-    format: 'png'
-}), true) //{options} options are Size?: 128 | 256 | 512 | 1024 | 2048, Format?: "webp" | "png" | "jpg" | "gif" //.defaultAvatarURL() A link to the user's default avatar //.displayAvatarURL() A link to the user's avatar if they have one. Otherwise a link to their default avatar will be returned
-.addField('AvatarURL', message.author.avatarURL({
-    size: '2048'
-}), true)
 .addField('Bot', message.author.bot, true) //Returns True If Message Author = Bot || False If Message Author not Bot.
 .addField('Created At', message.author.createdAt, false) //The time the user was created || .createdTimestamp - The timestamp the user was created at
 .addField('Discrim', message.author.discriminator, true) //A discriminator/tag based on username for the user Ex:- 0001
