@@ -4,7 +4,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   const Discord = require("discord.js");
   const embed = new MessageEmbed()
   .setColor(15400990)
-  .setDescription(`:ping_pong: Pong! Time - **${Date.now() - message.createdTimestamp}ms** API Latency is **${Math.round(client.ping)}ms**`)
+  .setDescription(`client.emojis.find(x => x.name === "loading") Pong! Time - **${Date.now() - message.createdTimestamp}ms** API Latency is **${Math.round(client.ping)}ms**`)
 message.channel.send(embed)
 };
 
