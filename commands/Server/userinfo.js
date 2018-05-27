@@ -5,11 +5,8 @@ const UserInfo = new Discord.MessageEmbed()
 exports.run = function(client, message, args, level) {
 let target = message.mentions.users.first();
 const UserInfo = new Discord.MessageEmbed()
-.setAuthor(message.author.username, message.author.avatarURL()) //Heading With Username & Their Avatar 
 .setTitle('UserInfo')
 .setColor('RANDOM') //You Can Use HexColour Ex:- #000000
-.setImage(message.author.avatarURL()) //Add Any Image URl || Image
-.setThumbnail(message.author.avatarURL()) //Add Any Image URl || ThumbNail
 
 
 .addField('Avatar', message.author.avatar, true) //The ID of the user's avatar //Inline True or false
@@ -31,7 +28,7 @@ const UserInfo = new Discord.MessageEmbed()
 .addField('Presence Game', message.author.presence.activity.name) //The presence Game of this user
 .addField('Tag', message.author.tag) //The Discord "tag" for this user || Ex:- Sai Chinna#6718
 .addField('Username', message.author.username) //The username of the user || Ex:- Sai Chinna
-.addField('Nick Name', message.guild.member(target).displayName) //Nick Name In That (message sent) server || Define target as message Author Ex:- let target = message.author; || Add This Line in Top
+//.addField('Nick Name', message.guild.member(target).displayName) //Nick Name In That (message sent) server || Define target as message Author Ex:- let target = message.author; || Add This Line in Top
 
 .setFooter('Requested By', message.author.tag) //Change To Anything As You Wish
 .setTimestamp() //The timestamp of this embed
