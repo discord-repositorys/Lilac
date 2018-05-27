@@ -3,8 +3,8 @@ const { MessageEmbed } = require("discord.js");
 //All Fields are Optional Pick Any some
 const UserInfo = new Discord.MessageEmbed()
 exports.run = function(client, message, args, level) {
-const UserInfo = new Discord.MessageEmbed()
 let target = message.author;
+const UserInfo = new Discord.MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL()) //Heading With Username & Their Avatar 
 .setTitle('UserInfo')
 .setColor('RANDOM') //You Can Use HexColour Ex:- #000000
