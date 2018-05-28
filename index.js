@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START", "TYPING_STOP", "GUILD_SYNC", "RELATIONSHIP_ADD", "RELATIONSHIP_REMOVE", "USER_SETTINGS_UPDATE", "USER_NOTE_UPDATE"], reconnect: true }); //ice
-client.tokens = require("./tokens.js");
+//client.tokens = require("./tokens.js");
 const { promisify } = require("util");
 const { stringify } = require('querystring');
 const Guild = require('./models/guild.js');
@@ -10,7 +10,7 @@ let cooldownUsers = [];
 const webhooks4discord = require("webhooks4discord");
 const CyricID = "349674631260667925"
 const Idiot = require("idiotic-api");
-client.API = new Idiot.Client(client.tokens.IDIOTIC, { dev: true });
+client.API = new Idiot.Client(process.env.IDIOTIC, { dev: true });
 const fs = require("fs")
 const moment = require('moment');
 const mongoose = require('mongoose');
@@ -45,7 +45,7 @@ const removeCooldown = ((userId, timeInSeconds) => {
 
 
 
-mongoose.connect(client.tokens.MONGODB);
+mongoose.connect(process.env.MONGODB);
 client.db = mongoose.connection;
 client.db.once("open", () => console.log("Connected to MongoDB"));
 client.db.on("error", (err) => console.error(err));
@@ -174,7 +174,7 @@ client.on("ready", async() => {
   }
 
 
-client.login(client.tokens.token);
+client.login(process.env.TOKEN);
 };
 
 init();
