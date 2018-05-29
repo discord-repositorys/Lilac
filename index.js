@@ -105,21 +105,33 @@ const init = async () => {
 //}
 
 
-const klaw = require("klaw");
-const path = require("path");
+//const klaw = require("klaw");
+//const path = require("path");
 
-const cmdList = [];
-klaw("./commands/")
-  .on("data", (file) => {
-    const cmdFile = path.parse(file.path);
-    if(!cmdFile.ext || cmdFile.ext !== ".js") return; // ignore non js files/folders
-    const cmd = require(cmdFile.dir + path.sep + cmdFile.name + cmdFile.ext);
-   client.commands.set(cmd.help.name, cmd);
-  cmd.conf.aliases.forEach(x => client.aliases.set(x, cmd.name));
-  cmdList.push(cmd);
-})
-  .on("end", () => console.log(`Loaded a total of ${cmdList.length} commands!`))
-  .on("error", (err) => console.error(err));
+//const cmdList = [];
+//klaw("./commands/")
+//  .on("data", (file) => {
+//    const cmdFile = path.parse(file.path);
+//    if(!cmdFile.ext || cmdFile.ext !== ".js") return; // ignore non js files/folders
+//    const cmd = require(cmdFile.dir + path.sep + cmdFile.name + cmdFile.ext);
+//   client.commands.set(cmd.help.name, cmd);
+//  cmd.conf.aliases.forEach(x => client.aliases.set(x, cmd.name));
+//  cmdList.push(cmd);
+//})
+//  .on("end", () => console.log(`Loaded a total of ${cmdList.length} commands!`))
+//  .on("error", (err) => console.error(err));
+  
+
+fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command ${commandName}`);
+    client.commands.set(commandName, props);
+  });
+});
   
   const update = () => {
     const data = stringify({ server_count: client.guilds.size });
