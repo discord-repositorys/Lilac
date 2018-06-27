@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
         if (!perms) return message.channel.send("Sorry you must have **Manage_Messages** permission.")
         if (!time) return message.channel.send("You must set a duration for the lockdown in either hours, minutes or seconds.");
 
-        if (message.author.id === "349674631260667925") {
+        if (message.author.id === "411683912729755649") {
             message.channel.overwritePermissions(message.author, {
                 SEND_MESSAGES: true
             })
