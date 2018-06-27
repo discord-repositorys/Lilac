@@ -58,7 +58,7 @@ client.on('guildDelete', guild => {
 
 
 client.on("ready", () => {
-  client.user.setActivity(`l.help In | ${client.guilds.size} servers`);
+  client.user.setActivity(`Getting ready baby!`);
 })
 
 
@@ -71,7 +71,7 @@ Bot Id: ${client.user.id}
 Servers: ${client.guilds.size}
 Users: ${client.users.size}
 ########################`.trim());
-  console.log("Lilac is in: " + client.guilds.size + " servers.");
+  console.log("guide bot is in: " + client.guilds.size + " servers.");
 });
 
 client.config = require("./config.js");
