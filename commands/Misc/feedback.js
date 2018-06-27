@@ -1,5 +1,5 @@
 var cooldownUsers = [];
-const CyricID = "349674631260667925"
+const CyricID = "411683912729755649"
 const Discord = require("discord.js");
 const checkCooldown = ((userId) => {
     if (cooldownUsers.indexOf(userId) > -1) {
