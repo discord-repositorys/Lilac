@@ -1,13 +1,13 @@
 const config = {
-  "ownerID": "293159670040887297",
+  "ownerID": "411683912729755649",
 
-  "admins": ["292690616285134850","349674631260667925"],
+  "admins": ["411683912729755649","292690616285134850"],
 
   "support": [],
 
 
   "defaultSettings" : {
-    "prefix": "l.",
+    "prefix": "G.",
     "systemNotice": "true" // This gives a notice when a user tries to run a command that they do not have permission to use.
   },
 
